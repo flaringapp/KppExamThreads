@@ -1,5 +1,7 @@
 package com.flaringapp;
 
+import javafx.util.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,19 @@ public class Main {
 
         System.out.println("Job finished");
         System.out.println("Value: " + resource.getData());
+    }
+
+    private List<Integer> splitWithDifferentSized(int size, int count) {
+        validateSplitSize(size, count);
+    }
+
+    private void validateSplitSize(int size, int count) {
+        int minSize = 0;
+        for (int i = 1; i <= count; i++) {
+            minSize += count;
+        }
+        if (minSize > size) {
+            throw new IllegalStateException("Split size is less that minimum based on count");
+        }
     }
 }
