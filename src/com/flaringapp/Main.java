@@ -13,7 +13,7 @@ public class Main {
         SharedResource resource = new SharedResource();
 
         List<Task> tasks = new ArrayList<>();
-        for (int i = 0; i < 5;i++) {
+        for (int i = 0; i < 5; i++) {
             Task task = new Task(resource);
             tasks.add(task);
         }
@@ -34,7 +34,19 @@ public class Main {
         System.out.println("Value: " + resource.getData());
     }
 
-    private List<Integer> splitWithDifferentSized(int size, int count) {
+    private List<Integer> splitBalanced(int size, int count) {
+        int countPerPart = count / size;
+        List<Integer> parts = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            parts.add(countPerPart);
+        }
+
+        parts.set(size - 1, parts.get(size - 1) + count % size);
+
+        return parts;
+    }
+
+    private List<Integer> splitWithDifferentSize(int size, int count) {
         validateSplitSize(size, count);
     }
 
